@@ -34,6 +34,12 @@ Borrow = A’B
 Figure -02 HALF Subtractor
 
 **Truthtable**
+#### Half Adder
+![image](https://github.com/Madhavareddy09/HALF_ADDER_SUBTRACTOR/assets/145742470/af95fa59-9cc1-445f-ba71-88501b24e2b9)
+
+#### Half Subtractor
+![image](https://github.com/Madhavareddy09/HALF_ADDER_SUBTRACTOR/assets/145742470/4b33e18a-41a0-47d7-bc9a-35d73d7b3ef0)
+
 
 **Procedure**
 
@@ -50,45 +56,32 @@ Figure -02 HALF Subtractor
 
 **Program:**
 
-/* Program to design a half adder and full adder circuit and verify its truth table in quartus using Verilog programming.
+#### Program to design a half adder and half subtractor circuit and verify its truth table in quartus using Verilog programming.
+
+#### Developed by : T.Ajay 
+#### RegisterNumber : 212223230007
+
 ```
-**HALF_ADDER**
-
-module half_adder(a,b,sum,carry);
+module half_addsub(a,b,sum,carry,D,Bo);
 input a,b;
-output sum,carry; 
-assign sum = a^b;
-assign carry = a & b;
-endmodule
-
-**HALF_SUBTRACTER**
-
-module half_subtracter(a,b,D,Bo);
-input a,b;
-output D,Bo; // Outputs sum and carry for half adder:Outputs difference D,Borrow Bo for half subtractor
-assign D = a ^ b;
-  assign Bo = ~a & b;
+output sum,carry , D, Bo;
+xor G1(sum,a,b);
+and G2(carry,a,b);
+not G4(abar,a);
+xor G3(D,a,b);
+and G5 (Bo,abar,b);
 endmodule
 ```
-Developed by: T.AJAY
-
-RegisterNumber: 212223230007
 
 **RTL Schematic**
 
-**HALF_ADDER**
-<img width="950" alt="half_adder circuit dia" src="https://github.com/Ganesh23013987/HALF_ADDER_SUBTRACTOR/assets/147473768/94d026c5-31ab-4b03-8570-402fac8f8582">
+![image](https://github.com/Madhavareddy09/HALF_ADDER_SUBTRACTOR/assets/145742470/c580483b-070f-4c97-a9c9-090ad4e20377)
 
-**HALF_SUBTRACTER**
-<img width="944" alt="half_subtracter circuit dia" src="https://github.com/Ganesh23013987/HALF_ADDER_SUBTRACTOR/assets/147473768/45b92357-b627-451f-8987-2b2212e2e8b9">
 
 **Output/TIMING Waveform**
 
-**Half_adder**
-![half_adder](https://github.com/Ganesh23013987/HALF_ADDER_SUBTRACTOR/assets/147473768/959809ae-aa26-42f7-b8c4-14b0787a8ef7)
+![image](https://github.com/Madhavareddy09/HALF_ADDER_SUBTRACTOR/assets/145742470/f6d822c3-56b7-4261-86b7-c732bd6f855c)
 
-**Half_subtracter**
-![half_subtracter](https://github.com/Ganesh23013987/HALF_ADDER_SUBTRACTOR/assets/147473768/bf7bf0be-898e-4861-a9a5-ba1d117e8b95)
 
 **Result:**
-The program code is successfully executed.
+Thus the half adder and half subtractor circuits are designed and the truth tables are verified successfully using quartus software.
